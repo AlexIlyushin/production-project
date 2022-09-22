@@ -6,7 +6,9 @@ const AppRouter = () => {
     let elements = useRoutes(Object.values(routeConfig));
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            {elements}
+            <div className='page-wrapper'>
+                {elements}
+            </div>
         </Suspense>
     );
 };
