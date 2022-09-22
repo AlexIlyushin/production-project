@@ -7,11 +7,11 @@ type Mods = Record<string, string | boolean>
 // хелпер для конкатинации классов. mods - доп классы по условию
 export function classNames(
     cls: string, //основной класс
-    mods: Mods, // модификаторы классов hovered,disabled и тд
-    additional: string[]): string { // доп классы
+    mods?: Mods, // модификаторы классов hovered,disabled и тд
+    additional?: string[]): string { // доп классы
     return [
         cls,
-        ...additional,
+        ...additional.filter(Boolean),
         ...Object.entries(mods).filter(([_, value]) => Boolean(value)).map(([className, _]) => className)
     ].join(' ')
 }
