@@ -31,7 +31,7 @@ module.exports = {
         'react/require-default-props': 'off', // пропсы с вопросиком (необязательные)
         'react/react-in-jsx-scope': 'off', // импорт реакта в каждый компонент
         'react/jsx-props-no-spreading': 'warn', // спред для пропрсов
-        'react/function-component-definition': 'off', // использовать в компонентах function declartion
+        'react/function-component-definition': 'off', // использовать в компонентах function declaration
         'no-shadow': 'off',
         'import/extensions': 'off', // расширения импортов
         'import/no-extraneous-dependencies': 'off', // импорт зав-ей из devDependencies (off - разрешить)
