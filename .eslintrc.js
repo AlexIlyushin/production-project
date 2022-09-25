@@ -22,7 +22,7 @@ module.exports = {
     ],
     rules: {
         'react/jsx-indent': [2, 4], // кол-во отступов для обычных файлов jsx tsx
-        'react/jsx-indent-props': [2, 4],
+        'react/jsx-indent-props': [2, 4], // кол-во отступов в аттрибутах к компоненту
         indent: [2, 4], // кол-во отступов для обычных файлов js
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', 'tsx'] }],
         'import/no-unresolved': 'off', // незарезовленные импорты
