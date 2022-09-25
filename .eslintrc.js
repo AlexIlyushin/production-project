@@ -18,6 +18,7 @@ module.exports = {
     plugins: [
         'react',
         '@typescript-eslint',
+        'i18next',
     ],
     rules: {
         'react/jsx-indent': [2, 4], // кол-во отступов для обычных файлов jsx tsx
@@ -34,7 +35,8 @@ module.exports = {
         'no-shadow': 'off',
         'import/extensions': 'off', // расширения импортов
         'import/no-extraneous-dependencies': 'off', // импорт зав-ей из devDependencies (off - разрешить)
-        'no-underscore-dangle': 'off', // двойные подчеркивания
+        'no-underscore-dangle': 'off', // двойные подчеркивания в наименовании переменных
+        'i18next/no-literal-string': ['error', { markupOnly: true }], // отсут-е переводов в разметке jsx
     },
     globals: {
         __IS_DEV__: true,
