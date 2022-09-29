@@ -40,11 +40,24 @@ module.exports = {
         'import/extensions': 'off', // расширения импортов
         'import/no-extraneous-dependencies': 'off', // импорт зав-ей из devDependencies (off - разрешить)
         'no-underscore-dangle': 'off', // двойные подчеркивания в наименовании переменных
-        'i18next/no-literal-string': ['error', { markupOnly: true }], // отсут-е переводов в разметке jsx
-        'max-len': ['error', { ignoreComments: true }],
+        'i18next/no-literal-string': ['error',
+            {
+                markupOnly: true,
+                ignoreAttribute: ['data-testid'],
+            }], // отсут-е переводов в разметке jsx
+        'max-len': ['error', { ignoreComments: true, code: 100 }],
 
     },
     globals: {
         __IS_DEV__: true,
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+
+    ],
 };

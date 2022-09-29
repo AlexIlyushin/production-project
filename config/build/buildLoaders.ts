@@ -26,7 +26,9 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
                 options: {
                     modules: {
                         auto: (redPath: string) => Boolean(redPath.includes('.module.')),
-                        localIdentName: options.isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]', // как в консоле верстки выглядит класс
+                        localIdentName: options.isDev
+                            ? '[path][name]__[local]--[hash:base64:5]'
+                            : '[hash:base64:8]', // как в консоле верстки выглядит класс
                     },
                 },
             },
@@ -47,7 +49,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
                             locales: ['en', 'ru'],
                             keyAsDefaultValue: false,
                             // saveMissing: true,
-                            outputPath: 'public/locales/{{locale}}/{{ns}}.json',
+                            // outputPath: 'public/locales/{{locale}}/{{ns}}.json',
                         },
                     ],
                 ],
