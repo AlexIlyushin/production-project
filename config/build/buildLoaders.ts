@@ -32,7 +32,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
                         {
                             locales: ['en', 'ru'],
                             keyAsDefaultValue: false,
-                            // saveMissing: true,
+                            saveMissing: true,
                             outputPath: 'public/locales/{{locale}}/{{ns}}.json',
                         },
                     ],
