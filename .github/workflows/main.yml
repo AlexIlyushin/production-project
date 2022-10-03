@@ -2,9 +2,9 @@ name: linting testing building
 run-name: ${{ github.actor }} is my custom ci testing
 on:
   push:
-    branches: [ master ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ master ]
+    branches: [ "main" ]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
