@@ -17,12 +17,5 @@ const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
     isOpen: true,
-    children: 12345,
+    children: 123456,
 };
-
-export const Dark = Template.bind({});
-Dark.args = {
-    isOpen: true,
-    children: 12345,
-};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
