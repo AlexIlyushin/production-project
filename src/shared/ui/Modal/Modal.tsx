@@ -67,8 +67,9 @@ export const Modal: FC<ModalProps> = (props) => {
                         className={cls.content}
                         onClick={onContentClick}
                     >
+                        {/* eslint-disable-next-line i18next/no-literal-string */}
                         {children}
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi culpa cupiditate debitis illo in iure magni maiores molestiae molestias obcaecati officia officiis, perspiciatis, praesentium quaerat rem repudiandae sunt veniam.
+                        Lorem ipsum dolor
                     </div>
                 </div>
             </div>
