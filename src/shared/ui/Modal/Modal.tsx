@@ -70,6 +70,7 @@ export const Modal: FC<ModalProps> = (props) => {
                         onClick={onContentClick}
                     >
                         {t('Text')}
+                        123
                     </div>
                 </div>
             </div>
