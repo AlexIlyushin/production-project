@@ -69,8 +69,7 @@ export const Modal: FC<ModalProps> = (props) => {
                         className={cls.content}
                         onClick={onContentClick}
                     >
-                        {t('Text')}
-                        123
+                        12345
                     </div>
                 </div>
             </div>
