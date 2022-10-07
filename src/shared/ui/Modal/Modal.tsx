@@ -3,6 +3,7 @@ import React, {
     FC, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
+import { useTranslation } from 'react-i18next';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -14,6 +15,7 @@ interface ModalProps {
 const ANIMATION_DELAY = 300;
 
 export const Modal: FC<ModalProps> = (props) => {
+    const { t } = useTranslation();
     const {
         className,
         children,
@@ -67,9 +69,7 @@ export const Modal: FC<ModalProps> = (props) => {
                         className={cls.content}
                         onClick={onContentClick}
                     >
-                        {/* eslint-disable-next-line i18next/no-literal-string */}
-                        {children}
-                        Lorem ipsum dolor
+                        {t('Text')}
                     </div>
                 </div>
             </div>
