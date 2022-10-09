@@ -7,5 +7,7 @@
   "О сайте": "About us",
   "Страница не найдена": "Page not found",
   "Тестовый перевод": "Test example",
-  "Язык": "English"
+  "Язык": "English",
+  "Уменьшить": "Decrement",
+  "Прибавить": "Increment"
 }
