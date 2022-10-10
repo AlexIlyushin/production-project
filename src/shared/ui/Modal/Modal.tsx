@@ -17,7 +17,6 @@ const ANIMATION_DELAY = 300;
 
 export const Modal: FC<ModalProps> = (props) => {
     const { t } = useTranslation();
-    const { theme } = useTheme();
     const {
         className,
         children,
@@ -65,7 +64,7 @@ export const Modal: FC<ModalProps> = (props) => {
 
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
+            <div className={classNames(cls.Modal, mods, [className])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div
                         className={cls.content}
