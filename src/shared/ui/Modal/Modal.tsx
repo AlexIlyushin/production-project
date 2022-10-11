@@ -4,7 +4,6 @@ import React, {
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -71,8 +70,6 @@ export const Modal: FC<ModalProps> = (props) => {
                         onClick={onContentClick}
                     >
                         {children}
-                        {' '}
-                        Text content
                     </div>
                 </div>
             </div>
