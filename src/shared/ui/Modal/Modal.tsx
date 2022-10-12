@@ -10,7 +10,7 @@ interface ModalProps {
     className?: string
     isOpen?: boolean
     onClose?: () => void
-    lazy?:boolean
+    lazy?: boolean
 }
 
 const ANIMATION_DELAY = 300;
@@ -29,7 +29,7 @@ export const Modal: FC<ModalProps> = (props) => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        if (isOpen) setIsMounted(true);
+        setIsMounted(isOpen);
     }, [isOpen]);
 
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
