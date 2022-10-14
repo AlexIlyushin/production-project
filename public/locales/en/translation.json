@@ -1,8 +1,9 @@
 {
+  "Вы ввели неверный логин или пароль": "You pass worn name or password",
   "Введите username": "enter the username",
-  "Введите имя": "enter the username",
   "Введите пароль": "enter the password",
   "Войти": "Log in",
+  "Выйти": "Log out",
   "Главная": "Main",
   "Главная страница": "Main page",
   "Короткий язык": "En",
@@ -11,5 +12,6 @@
   "Страница не найдена": "Page not found",
   "Тестовый перевод": "Test example",
   "Уменьшить": "Decrement",
+  "Форма авторизации": "Authorization form",
   "Язык": "English"
 }
