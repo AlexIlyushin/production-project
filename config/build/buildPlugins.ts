@@ -6,6 +6,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
+    const isProd = !isDev;
     return [
         new HtmlWebpackPlugin(
             {
@@ -13,10 +14,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
             },
         ),
         new webpack.ProgressPlugin(),
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash:8].css',
-            chunkFilename: 'css/[name].[contenthash:8].css',
-        }),
+
         new webpack.DefinePlugin({ // плагин для прокидывания переменных в файлы
             __IS_DEV__: JSON.stringify(isDev),
         }),
@@ -24,5 +22,12 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
             new ReactRefreshWebpackPlugin({ overlay: false }),
             new BundleAnalyzerPlugin({ openAnalyzer: false }),
         ] : []),
+        ...(isProd ? [
+            new MiniCssExtractPlugin({
+                filename: 'css/[name].[contenthash:8].css',
+                chunkFilename: 'css/[name].[contenthash:8].css',
+            }),
+        ] : []),
+
     ];
 }
