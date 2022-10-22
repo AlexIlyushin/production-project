@@ -29,7 +29,9 @@ export const Modal: FC<ModalProps> = (props) => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        setIsMounted(isOpen);
+        if (isOpen) {
+            setIsMounted(true);
+        }
     }, [isOpen]);
 
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
