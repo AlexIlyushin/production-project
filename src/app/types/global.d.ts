@@ -12,3 +12,4 @@ declare module '*.svg' { // особая декларация чтоб проп�
     export default SVG;
 }
 declare const __IS_DEV__:boolean;
+declare const __API__:string;
