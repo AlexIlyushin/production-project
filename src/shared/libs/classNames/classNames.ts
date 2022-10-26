@@ -1,4 +1,4 @@
-type Mods = Record<string, string | boolean>
+export type Mods = Record<string, string | boolean | undefined>
 
 // const obj:Mods={  // пример записи
 //     'test':true
@@ -7,8 +7,8 @@ type Mods = Record<string, string | boolean>
 // хелпер для конкатинации классов. mods - доп классы по условию
 export function classNames(
     cls: string, // основной класс
-    mods?: Mods, // модификаторы классов hovered,disabled и тд
-    additional?: string[],
+    mods: Mods = {}, // модификаторы классов hovered,disabled и тд
+    additional: Array<string | undefined> = [],
 ): string { // доп классы
     return [
         cls,
