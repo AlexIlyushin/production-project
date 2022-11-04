@@ -4,7 +4,6 @@ import { Select } from 'shared/ui/Select/Select';
 import { memo, useCallback } from 'react';
 
 import { Currency } from '../../model/types/currency';
-import cls from './CurrencySelect.module.scss';
 
 interface CurrencySelectProps {
     className?: string
@@ -29,7 +28,7 @@ export const CurrencySelect = memo(({
 
     return (
         <Select
-            className={classNames(cls.CurrencySelect, {}, [className])}
+            className={classNames('', {}, [className])}
             label={t('Укажите валюту')}
             options={options}
             value={value}

@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Select } from 'shared/ui/Select/Select';
 import { memo, useCallback } from 'react';
 import { Country } from '../../model/types/country';
-import cls from './CountrySelect.module.scss';
 
 interface CountrySelectProps {
     className?: string
@@ -29,7 +28,7 @@ export const CountrySelect = memo(({
 
     return (
         <Select
-            className={classNames(cls.CurrencySelect, {}, [className])}
+            className={classNames('', {}, [className])}
             label={t('Укажите страну')}
             options={options}
             value={value}
