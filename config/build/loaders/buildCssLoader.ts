@@ -1,7 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { BuildOptions } from '../types/config';
 
-export function buildCssLoader({ isDev }:BuildOptions) {
+export function buildCssLoader(isDev:Boolean) {
     return {
         test: /\.s[ac]ss$/i,
         use: [
@@ -10,7 +9,7 @@ export function buildCssLoader({ isDev }:BuildOptions) {
                 loader: 'css-loader',
                 options: {
                     modules: {
-                        auto: (redPath: string) => Boolean(redPath.includes('.module.')),
+                        auto: (resPath: string) => Boolean(resPath.includes('.module.')),
                         localIdentName: isDev
                             ? '[path][name]__[local]--[hash:base64:5]'
                             : '[hash:base64:8]', // как в консоле верстки выглядит класс

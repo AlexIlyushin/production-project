@@ -18,7 +18,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     };
 
-    const cssLoader = buildCssLoader(options);
+    const cssLoader = buildCssLoader(options.isDev);
     const babelLoader = buildBabelLoader(options);
     const
         typescriptLoader = {
