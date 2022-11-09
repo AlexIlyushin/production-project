@@ -80,6 +80,7 @@ describe('profileSlice.test', () => {
             isLoading: false,
             data,
             form: data,
+            validateErrors: undefined,
             readonly: true,
         });
     });
