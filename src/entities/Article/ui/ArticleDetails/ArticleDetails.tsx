@@ -20,7 +20,7 @@ import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import cls from './ArticleDetails.module.scss';
 import {
-    getArticleDetailData,
+    getArticleDetailsData,
     getArticleDetailError,
     getArticleDetailIsLoading,
 } from '../../model/selectors/articleDetails';
@@ -40,7 +40,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
     const isLoading = useSelector(getArticleDetailIsLoading);
     const error = useSelector(getArticleDetailError);
-    const article = useSelector(getArticleDetailData);
+    const article = useSelector(getArticleDetailsData);
 
     useEffect(() => {
         if (__PROJECT__ !== 'storybook') dispatch(fetchArticleById(id));

@@ -10,6 +10,7 @@ import { NavigateOptions } from 'react-router';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { AddCommentFormSchema } from 'features/addCommentForm';
 
 export interface StateSchema {
     counter: CounterSchema,
@@ -18,8 +19,9 @@ export interface StateSchema {
     // async reducers
     loginForm?: LoginSchema
     profile?: ProfileSchema
-    articleDetails?:ArticleDetailsSchema
-    articleDetailsComments?:ArticleDetailsCommentsSchema
+    articleDetails?: ArticleDetailsSchema
+    articleDetailsComments?: ArticleDetailsCommentsSchema
+    addCommentForm?: AddCommentFormSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
@@ -43,5 +45,5 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
     rejectValue: T,
     extra: ThunkExtraArg,
-    state:StateSchema
+    state: StateSchema
 }
