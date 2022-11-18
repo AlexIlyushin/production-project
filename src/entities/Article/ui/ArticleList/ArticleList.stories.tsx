@@ -1,12 +1,7 @@
-import { classNames } from 'shared/libs/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
-import { Article, ArticleList, ArticleView } from 'entities/Article';
-import cls from './ArticlesPage.module.scss';
-
-interface ArticlesPageProps {
-    className?: string
-}
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Article, ArticleView } from '../../model/types/article';
+import { ArticleList } from './ArticleList';
 
 const article = {
     id: '1',
@@ -88,24 +83,52 @@ const article = {
     ],
 } as Article;
 
-const ArticlesPage = ({ className }: ArticlesPageProps) => {
-    const { t } = useTranslation('article');
-    return (
-        <div className={classNames(cls.ArticlesPage, {}, [className])}>
-            <ArticleList
-                isLoading={false}
-                view={ArticleView.BIG}
-                articles={
-                    new Array(16)
-                        .fill(0)
-                        .map((item, index) => ({
-                            ...article,
-                            id: String(index),
-                        }))
-                }
-            />
-        </div>
-    );
+export default {
+    title: 'entities/ArticleList',
+    component: ArticleList,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof ArticleList>;
+
+const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+
+export const isLoadingBig = Template.bind({});
+isLoadingBig.args = {
+    articles: [],
+    isLoading: true,
+    view: ArticleView.BIG,
 };
 
-export default memo(ArticlesPage);
+export const isLoadingSmall = Template.bind({});
+isLoadingSmall.args = {
+    articles: [],
+    isLoading: true,
+    view: ArticleView.SMALL,
+};
+
+export const ListBig = Template.bind({});
+ListBig.args = {
+    articles:
+        new Array(3)
+            .fill(0)
+            .map((item, index) => ({
+                ...article,
+                id: String(index),
+            })),
+    isLoading: false,
+    view: ArticleView.BIG,
+};
+
+export const ListSmall = Template.bind({});
+ListSmall.args = {
+    articles:
+        new Array(9)
+            .fill(0)
+            .map((item, index) => ({
+                ...article,
+                id: String(index),
+            })),
+    isLoading: false,
+    view: ArticleView.SMALL,
+};
