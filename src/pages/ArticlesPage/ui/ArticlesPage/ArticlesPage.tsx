@@ -6,7 +6,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/libs/components/Dynami
 import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect/useInitialEffect';
 
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
 import { getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
