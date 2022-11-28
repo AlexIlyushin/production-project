@@ -1,5 +1,6 @@
 import { classNames } from 'shared/libs/classNames/classNames';
-import { memo, ReactNode, useCallback } from 'react';
+import { useCallback } from 'react';
+import { typedMemo } from 'shared/types';
 import cls from './Tabs.module.scss';
 import { Card, CardTheme } from '../Card/Card';
 
@@ -15,7 +16,7 @@ interface TabsProps<T extends string> {
     onTabClick: (tab: T) => void;
 }
 
-export const Tabs = <T extends string>(props: TabsProps<T>) => {
+export const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
     const {
         className,
         tabs,
@@ -41,4 +42,4 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
             ))}
         </div>
     );
-};
+});
