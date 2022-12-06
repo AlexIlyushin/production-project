@@ -21,6 +21,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'lex-ander-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4], // кол-во отступов для обычных файлов jsx tsx
@@ -53,6 +54,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         'no-undef': 'off', // правило отвечающее за глоб переменные
+        'lex-ander-plugin/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,
