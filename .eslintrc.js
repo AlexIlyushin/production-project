@@ -54,6 +54,7 @@ module.exports = {
                     'direction',
                     'gap',
                     'role',
+                    'as',
                 ],
             }], // отсут-е переводов в разметке jsx
         'max-len': ['error', { ignoreComments: true, code: 120 }],
