@@ -34,7 +34,7 @@ export const CountrySelect = memo(({
             defaultValue={t('Укажите валюту')}
             label={t('Укажите валюту')}
             items={options}
-            direction="top"
+            direction="top right"
         />
     );
 });

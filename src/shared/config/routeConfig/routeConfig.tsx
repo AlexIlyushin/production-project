@@ -1,4 +1,4 @@
-import { RouteObject, RouteProps } from 'react-router-dom';
+import { RouteObject } from 'react-router-dom';
 import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
