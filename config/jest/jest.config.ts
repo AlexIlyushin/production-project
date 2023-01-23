@@ -53,6 +53,16 @@ export default {
         '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     },
 
+    reporters: [
+        'default',
+        ['jest-html-reporters', {
+            publicPath: '<rootDir>/reports/unit',
+            filename: 'report.html',
+            openReport: true,
+            inlineSource: true,
+        }],
+    ],
+
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
 
     // A set of global variables that need to be available in all test environments
