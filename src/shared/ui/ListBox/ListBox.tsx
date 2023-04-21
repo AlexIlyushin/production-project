@@ -4,7 +4,6 @@ import { classNames } from 'shared/libs/classNames/classNames';
 import { CheckIcon } from '@heroicons/react/20/solid';
 import { DropdownDirection } from 'shared/types/ui';
 import { HStack } from '../Stack';
-import { Button } from '../Button/Button';
 import cls from './ListBox.module.scss';
 
 interface ListBoxItem {
@@ -57,9 +56,9 @@ export function ListBox(props: ListBoxProps) {
                 <HListBox.Button
                     className={cls.trigger}
                 >
-                    <Button disabled={readonly}>
-                        {value ?? defaultValue}
-                    </Button>
+
+                    {value ?? defaultValue}
+
                 </HListBox.Button>
                 <HListBox.Options
                     className={classNames(cls.options, {}, optionsClasses)}
