@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/libs/components/DynamicModuleLoader';
 import { HStack } from 'shared/ui/Stack';
-import { addCommentFormActions, addCommentFormReducer } from '../model/slices/addCommentFormSlice';
-import { getAddCommentError, getAddCommentText } from '../model/selectors/addCommentFormSelectors';
+import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
+import { getAddCommentError, getAddCommentText } from '../../model/selectors/addCommentFormSelectors';
 import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {

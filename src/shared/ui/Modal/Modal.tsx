@@ -1,6 +1,6 @@
 import { classNames, Mods } from 'shared/libs/classNames/classNames';
 import React, {
-    FC, MutableRefObject, useCallback, useEffect, useRef, useState,
+    MutableRefObject, PropsWithChildren, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Portal } from '../Portal/Portal';
@@ -15,7 +15,7 @@ interface ModalProps {
 
 const ANIMATION_DELAY = 300;
 
-export const Modal: FC<ModalProps> = (props) => {
+export const Modal = (props: PropsWithChildren<ModalProps>) => {
     const { t } = useTranslation();
     const {
         className,
