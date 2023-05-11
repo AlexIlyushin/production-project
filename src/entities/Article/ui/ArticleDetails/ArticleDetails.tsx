@@ -13,11 +13,12 @@ import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { ArticleBlockType } from '../../model/consts/articleConsts';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleCodeBlockComponent } from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../../ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import cls from './ArticleDetails.module.scss';
 import {

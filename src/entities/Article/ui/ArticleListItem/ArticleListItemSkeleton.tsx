@@ -1,16 +1,9 @@
 import { classNames } from 'shared/libs/classNames/classNames';
-import { memo, useCallback } from 'react';
-import { Text } from 'shared/ui/Text/Text';
+import { memo } from 'react';
 import { Card } from 'shared/ui/Card/Card';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import {
-    Article, ArticleBlockType, ArticleTextBlock, ArticleView,
-} from '../../model/types/article';
+import { ArticleView } from '../../model/consts/articleConsts';
 import cls from './ArticleListItem.module.scss';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface ArticleListItemSkeletonProps {
     className?: string
