@@ -2,7 +2,8 @@ import { classNames, Mods } from 'shared/libs/classNames/classNames';
 import React, {
     MutableRefObject, PropsWithChildren, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTheme } from 'app/providers/ThemeProvider';
+import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -16,7 +17,7 @@ interface ModalProps {
 const ANIMATION_DELAY = 300;
 
 export const Modal = (props: PropsWithChildren<ModalProps>) => {
-    const { t } = useTranslation();
+    const { theme } = useTheme();
     const {
         className,
         children,
@@ -51,10 +52,6 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
         }
     }, [onClose]);
 
-    const onContentClick = (e: React.MouseEvent) => {
-        e.stopPropagation();
-    };
-
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
             closeHandler();
@@ -77,15 +74,14 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
 
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className])}>
-                <div className={cls.overlay} onClick={closeHandler}>
-                    <div
-                        className={cls.content}
-                        onClick={onContentClick}
-                    >
-                        {children}
-                    </div>
+            <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
+                <Overlay onClick={closeHandler} />
+                <div
+                    className={cls.content}
+                >
+                    {children}
                 </div>
+
             </div>
         </Portal>
     );
