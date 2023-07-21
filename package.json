@@ -113,7 +113,9 @@
     "react-i18next": "^11.18.3",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
-    "whatwg-fetch": "^3.6.2"
+    "whatwg-fetch": "^3.6.2",
+    "@react-spring/web": "^9.5.2",
+    "@use-gesture/react": "^10.2.19"
   },
   "loki": {
     "configurations": {
