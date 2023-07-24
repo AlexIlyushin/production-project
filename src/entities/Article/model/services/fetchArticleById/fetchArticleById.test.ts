@@ -1,4 +1,4 @@
-import { TestAsyncThunk } from 'shared/libs/tests/testAsyncThunk/TestAsyncThunk';
+import { TestAsyncThunk } from '@/shared/libs/tests/testAsyncThunk/TestAsyncThunk';
 import { fetchArticleById } from './fetchArticleById';
 
 const data = {

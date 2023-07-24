@@ -1,7 +1,7 @@
-import { classNames, Mods } from 'shared/libs/classNames/classNames';
 import React, { PropsWithChildren } from 'react';
-import { useTheme } from 'app/providers/ThemeProvider';
-import { useModal } from 'shared/libs/hooks/useModal/useModal';
+import { classNames, Mods } from '@/shared/libs/classNames/classNames';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { useModal } from '@/shared/libs/hooks/useModal/useModal';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';

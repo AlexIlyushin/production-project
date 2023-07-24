@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { classNames } from 'shared/libs/classNames/classNames';
 import { CheckIcon } from '@heroicons/react/20/solid';
-import { DropdownDirection } from 'shared/types/ui';
+import { classNames } from '@/shared/libs/classNames/classNames';
+import { DropdownDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../styles/consts';
 import { HStack } from '../../../Stack';
 import cls from './ListBox.module.scss';
