@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:vite": "vite",
+    "start:dev:vite": "concurrently \"npm run start:vite\" \"npm run start:dev:server\"",
     "start": "webpack serve --env port=3000",
     "start:dev": "concurrently \"npm run start\" \"npm run start:dev:server\"",
     "start:dev:server": "node ./json-server/index.js",
@@ -29,6 +31,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "vite": "^3.1.0",
+    "vite-plugin-svgr": "^2.2.1",
+    "@vitejs/plugin-react": "^2.1.0",
     "react-device-detect": "^2.2.2",
     "@babel/core": "^7.17.5",
     "@babel/plugin-transform-runtime": "^7.18.10",
