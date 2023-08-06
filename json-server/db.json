@@ -823,18 +823,18 @@
   ],
   "profile-ratings": [
     {
-      "id": "1",
-      "rate": 4,
-      "feedback": "Хорошая статья",
-      "userId": "1",
-      "profileId": "1"
-    },
-    {
       "id": "2",
       "rate": 4,
       "feedback": "Хорошая статья",
       "userId": "1",
       "profileId": "2"
+    },
+    {
+      "userId": "1",
+      "profileId": "1",
+      "rate": 1,
+      "feedback": "11ву",
+      "id": "WLBX3IA"
     }
   ]
 }
