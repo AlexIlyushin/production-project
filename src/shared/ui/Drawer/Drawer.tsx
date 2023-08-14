@@ -61,6 +61,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
         }) => {
             if (oy < -70) cancel();
             if (last) {
+                // eslint-disable-next-line no-unused-expressions
                 oy > height * 0.5 || (vy > 0.5 && dy > 0) ? close(vy) : openDrawer({ canceled });
             } else {
                 api.start({ y: oy, immediate: true });

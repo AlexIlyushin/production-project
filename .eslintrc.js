@@ -65,7 +65,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         'no-undef': 'off', // правило отвечающее за глоб переменные
-        'lex-ander-plugin/path-checker': 'error',
+        'lex-ander-plugin/path-checker': ['error', { alias: '@' }],
         'react/no-array-index-key': 'off', // ключи в списках из индексов
     },
     globals: {
