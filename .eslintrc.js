@@ -73,6 +73,13 @@ module.exports = {
                 testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
             },
         ],
+        'lex-ander-plugin/layers-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
         'react/no-array-index-key': 'off', // ключи в списках из индексов
     },
     globals: {

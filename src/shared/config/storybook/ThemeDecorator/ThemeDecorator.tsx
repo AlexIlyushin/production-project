@@ -1,8 +1,12 @@
 import { Story } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
+// eslint-disable-next-line lex-ander-plugin/layers-imports
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
 
 export const ThemeDecorator = (theme:Theme) => (StoryComponent:Story) => (
-    <div className={`app ${theme}`}>
-        <StoryComponent />
-    </div>
+    <ThemeProvider initialTheme={theme}>
+        <div className={`app ${theme}`}>
+            <StoryComponent />
+        </div>
+    </ThemeProvider>
 );
