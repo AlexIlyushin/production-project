@@ -1,15 +1,18 @@
 import { memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
+
+import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
+import { articlesPageReducer } from '../../model/slices/articlePageSlice';
+import { ArticleInfiniteList } from '../../ui/ArticleInfiniteList/ArticleInfiniteList';
+import { ArticlesPageFilters } from '../../ui/ArticlesPageFilters/ArticlesPageFilters';
+
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
 import { Page } from '@/widgets/Page';
-import { ArticleInfiniteList } from '../../ui/ArticleInfiniteList/ArticleInfiniteList';
-import { ArticlesPageFilters } from '../../ui/ArticlesPageFilters/ArticlesPageFilters';
-import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
-import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
-import { articlesPageReducer } from '../../model/slices/articlePageSlice';
+
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {

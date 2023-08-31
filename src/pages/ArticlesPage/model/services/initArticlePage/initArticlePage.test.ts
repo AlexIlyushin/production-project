@@ -1,6 +1,7 @@
-import { TestAsyncThunk } from '@/shared/libs/tests/testAsyncThunk/TestAsyncThunk';
-import { initArticlePage } from '../initArticlePage/initArticlePage';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
+import { initArticlePage } from '../initArticlePage/initArticlePage';
+
+import { TestAsyncThunk } from '@/shared/libs/tests/testAsyncThunk/TestAsyncThunk';
 
 jest.mock('../fetchArticlesList/fetchArticlesList');
 

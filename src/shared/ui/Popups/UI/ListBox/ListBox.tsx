@@ -1,12 +1,15 @@
-import { ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/20/solid';
+import { ReactNode } from 'react';
+
+import { HStack } from '../../../Stack';
+import { mapDirectionClass } from '../../styles/consts';
+import popupCls from '../../styles/popup.module.scss';
+
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
-import { mapDirectionClass } from '../../styles/consts';
-import { HStack } from '../../../Stack';
+
 import cls from './ListBox.module.scss';
-import popupCls from '../../styles/popup.module.scss';
 
 interface ListBoxItem {
     value: string

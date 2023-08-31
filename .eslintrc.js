@@ -22,10 +22,35 @@ module.exports = {
         'i18next',
         'react-hooks',
         'lex-ander-plugin',
+        'unused-imports',
+        'import',
     ],
     rules: {
+        'import/order': [
+            'error',
+            {
+                pathGroups: [
+                    {
+                        pattern: '@/**',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                    {
+                        pattern: './**.module.*',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                ],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: false,
+                },
+            },
+        ],
         'react/jsx-indent': [2, 4], // кол-во отступов для обычных файлов jsx tsx
         'react/jsx-indent-props': [2, 4], // кол-во отступов в аттрибутах к компоненту
+        'unused-imports/no-unused-imports': 'error',
         indent: [2, 4], // кол-во отступов для обычных файлов js
         'react/jsx-filename-extension': [
             2,

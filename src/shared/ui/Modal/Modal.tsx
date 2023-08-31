@@ -1,10 +1,13 @@
 import React, { PropsWithChildren } from 'react';
-import { classNames, Mods } from '@/shared/libs/classNames/classNames';
-import { useModal } from '@/shared/libs/hooks/useModal/useModal';
+
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
-import cls from './Modal.module.scss';
+
+import { classNames, Mods } from '@/shared/libs/classNames/classNames';
+import { useModal } from '@/shared/libs/hooks/useModal/useModal';
 import { useTheme } from '@/shared/libs/hooks/useTheme/useTheme';
+
+import cls from './Modal.module.scss';
 
 interface ModalProps {
     className?: string
