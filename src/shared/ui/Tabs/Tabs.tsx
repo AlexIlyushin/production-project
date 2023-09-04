@@ -14,8 +14,18 @@ export interface TabItem<T extends string> {
 
 interface TabsProps<T extends string> {
     className?: string;
+    /**
+     * табы и их содержимое
+     */
     tabs: TabItem<T>[];
+    /**
+     * текущее значение таба
+     */
     value: T;
+    /**
+     * колбек на клик по табу *
+     * @param tab
+     */
     onTabClick: (tab: T) => void;
 }
 

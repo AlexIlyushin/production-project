@@ -11,16 +11,37 @@ import { DropdownDirection } from '@/shared/types/ui';
 import cls from './Dropdown.module.scss';
 
 export interface DropDownItem {
+    /**
+     * флаг отключения
+     */
     disabled?: boolean;
+    /**
+     * содержимое
+     */
     content: ReactNode;
+    /**
+     * колбек при клике
+     */
     onClick?: () => void;
+    /**
+     * флаг (ссылка или нет)
+     */
     href?: string
 }
 
 interface DropdownProps {
     className?: string;
+    /**
+     * список элементов
+     */
     items: DropDownItem[];
+    /**
+     * кнопка выпадающего меню
+     */
     trigger: ReactNode;
+    /**
+     * направление выпадающего меню
+     */
     direction?: DropdownDirection;
 }
 

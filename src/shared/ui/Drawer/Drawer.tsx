@@ -13,9 +13,21 @@ import cls from './Drawer.module.scss';
 
 interface DrawerProps {
     className?: string;
+    /**
+     * Содержимое дровера
+     */
     children: ReactNode;
+    /**
+     * флаг открытия
+     */
     isOpen?: boolean;
+    /**
+     * колбек при закрытии
+     */
     onClose?: () => void;
+    /**
+     * ленивая подгрузка
+     */
     lazy?: boolean;
 }
 

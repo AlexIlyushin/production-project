@@ -6,7 +6,13 @@ import cls from './Icon.module.scss';
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
     className?: string
+    /**
+     * иконка
+     */
     Svg:React.VFC<React.SVGProps<SVGSVGElement>>
+    /**
+     * инвертировать цвет иконки
+     */
     inverted?:boolean
 }
 

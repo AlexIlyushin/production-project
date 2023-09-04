@@ -6,8 +6,17 @@ import cls from './Avatar.module.scss';
 
 interface AvatarProps {
     className?: string
+    /**
+     *   Изображение
+     */
     src?: string
+    /**
+     *   Размер
+     */
     size?: number
+    /**
+     * альтернативный текст
+     */
     alt?: string
 }
 

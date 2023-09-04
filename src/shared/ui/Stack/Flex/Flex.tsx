@@ -13,11 +13,29 @@ type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement
 
 export interface FlexProps extends DivProps{
     className?: string
+    /**
+     *содержимое флекс-контейнера
+     */
     children: ReactNode
+    /**
+     * выравнивание по горизонтали **
+     */
     justify?: FlexJustify;
+    /**
+     * выравнивание по вертикали **
+     */
     align?: FlexAlign;
+    /**
+     * направление выпадания флекс-контейнера **
+     */
     direction: FlexDirection;
+    /**
+     * отступы флекс-контейнера **
+     */
     gap?: FlexGap;
+    /**
+     * максимальный размер флекс-контейнера (флаг) **
+     */
     max?:boolean;
 }
 

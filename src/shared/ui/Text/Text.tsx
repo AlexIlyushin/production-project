@@ -24,10 +24,25 @@ export enum TextAlign {
 
 interface TextProps {
     className?: string,
+    /**
+     * текст как заголовок
+     */
     title?: string,
+    /**
+     * значение текста
+     */
     text?: string,
+    /**
+     * тема текста
+     */
     theme?: TextTheme
+    /**
+     * выравнивание текста
+     */
     align?: TextAlign
+    /**
+     * размер текста
+     */
     size?: TextSize
 
     'data-testid'?: string;

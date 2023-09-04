@@ -10,9 +10,22 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 
 interface InputProps extends HTMLInputProps {
     className?: string
+    /**
+     *  управляемое значение инпута
+     */
     value?: string | number
+    /**
+     * колбек при изменении
+     * @param value
+     */
     onChange?: (value: string) => void
+    /**
+     * установка автофокуса инпута
+     */
     autofocus?:boolean
+    /**
+     * только для чтения
+     */
     readonly?:boolean
 }
 

@@ -11,8 +11,17 @@ import cls from './Modal.module.scss';
 
 interface ModalProps {
     className?: string
+    /**
+     * флаг открытия
+     */
     isOpen?: boolean
+    /**
+     * колбек при закрытии
+     */
     onClose?: () => void
+    /**
+     * флаг ленивой отрисовки
+     */
     lazy?: boolean
 }
 

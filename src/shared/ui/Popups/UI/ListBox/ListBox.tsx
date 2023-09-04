@@ -12,18 +12,49 @@ import { DropdownDirection } from '@/shared/types/ui';
 import cls from './ListBox.module.scss';
 
 interface ListBoxItem {
+    /**
+     * значение управляемое
+     */
     value: string
+    /**
+     * содержимое элемента
+     */
     content: ReactNode;
+    /**
+     * флаг отключения элемента
+     */
     disabled?: boolean
 }
 interface ListBoxProps {
+    /**
+     * список элементов
+     */
     items?: ListBoxItem[]
     className?: string
+    /**
+     * текущее значение
+     */
     value?: string
+    /**
+     * колбек при изменении
+     * @param value
+     */
     onChange: (value: string) => void
+    /**
+     * значение по умолчанию
+     */
     defaultValue?: string
+    /**
+     * флаг только для чтения
+     */
     readonly?:boolean
+    /**
+     * направление выпадающего меню
+     */
     direction?: DropdownDirection;
+    /**
+     * надпись
+     */
     label?:string
 }
 

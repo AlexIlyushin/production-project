@@ -6,6 +6,9 @@ import cls from './Overlay.module.scss';
 
 interface OverlayProps {
     className?: string;
+    /**
+     * колбек при клике на оверлей
+     */
     onClick?: () => void;
 }
 

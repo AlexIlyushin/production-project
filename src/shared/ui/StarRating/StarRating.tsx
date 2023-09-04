@@ -9,9 +9,19 @@ import cls from './StarRating.module.scss';
 
 interface StarRatingProps {
     className?: string
+    /**
+     * колбек на изменение
+     * @param starCount
+     */
     onSelect?:(starCount:number)=>void
+    /**
+     * размер звёзд **
+     */
     size?:number
-    selectedStars?:number // todo
+    /**
+     * выбранные звёзды **
+     */
+    selectedStars?:number
 }
 
 const stars = [1, 2, 3, 4, 5];

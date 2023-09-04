@@ -12,10 +12,26 @@ export interface SelectOption<T extends string> {
 
 interface SelectProps<T extends string> {
     className?: string
+    /**
+     * надпись
+     */
     label?: string
+    /**
+     * опции селекта
+     */
     options?: SelectOption<T>[]
+    /**
+     *  управляемое значение
+     */
     value?: T
+    /**
+     * колбек на изменение *
+     * @param value
+     */
     onChange?: (value: T) => void
+    /**
+     * флаг только для чтения *
+     */
     readonly?:boolean
 }
 

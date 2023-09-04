@@ -6,8 +6,17 @@ import cls from './Skeleton.module.scss';
 
 interface SkeletonProps {
     className?: string
+    /**
+     * высота скелета
+     */
     height?:string | number
+    /**
+     * ширина скелета
+     */
     width?:string | number
+    /**
+     * граница скелета
+     */
     border?:string
 }
 

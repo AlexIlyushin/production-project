@@ -11,8 +11,17 @@ export enum CardTheme {
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string
+    /**
+     *  Содержимое карточки
+     */
     children: ReactNode
+    /**
+     * Тема карточки
+     */
     theme?: CardTheme
+    /**
+     * 100% ширина
+     */
     max?:boolean
 }
 
