@@ -15,3 +15,10 @@ const Template: ComponentStory<typeof NotificationItem> = (args) => <Notificatio
 
 export const Primary = Template.bind({});
 Primary.args = {};
+Primary.args = {
+    item: {
+        id: '',
+        title: 'title',
+        description: 'description',
+    },
+};

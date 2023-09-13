@@ -3,6 +3,8 @@ import React from 'react';
 
 import ProfileRating from './ProfileRating';
 
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
 export default {
     title: 'shared/ProfileRating',
     component: ProfileRating,
@@ -15,3 +17,4 @@ const Template: ComponentStory<typeof ProfileRating> = (args) => <ProfileRating 
 
 export const Primary = Template.bind({});
 Primary.args = {};
+Primary.decorators = [StoreDecorator({})];

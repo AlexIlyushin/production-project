@@ -3,6 +3,8 @@ import React from 'react';
 
 import { ArticlesPageFilters } from './ArticlesPageFilters';
 
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
 export default {
     title: 'pages/ArticlePage/ArticlesPageFilters',
     component: ArticlesPageFilters,
@@ -15,3 +17,4 @@ const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => <Articles
 
 export const Primary = Template.bind({});
 Primary.args = {};
+Primary.decorators = [StoreDecorator({})];
