@@ -5,8 +5,7 @@ import { articleDetailsReducer } from '@/entities/Article/testing';
 import { loginReducer } from '@/features/AuthByUsername/testing';
 import { addCommentFormReducer } from '@/features/addCommentForm/testing';
 import { profileReducer } from '@/features/editableProfileCard/testing';
-// eslint-disable-next-line lex-ander-plugin/fsd-public-api-imports,lex-ander-plugin/layers-imports
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
 import { ReducersList } from '@/shared/libs/components/DynamicModuleLoader';
 
 const defaultAsyncReducer: ReducersList = {
