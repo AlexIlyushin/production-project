@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { getCanEditArticle } from '../../model/selectors/article';
 
 import { getArticleDetailsData } from '@/entities/Article';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
@@ -21,11 +21,12 @@ export const ArticleDetailsPageHeader = memo(({ className }: ArticleDetailsPageH
     const canEdit = useSelector(getCanEditArticle);
     const article = useSelector(getArticleDetailsData);
 
-    const onBackToList = useCallback(() => navigate(RoutePath.articles), [navigate]);
-    const onEditArticle = useCallback(
-        () => navigate(`${RoutePath.article_detail}${article?.id}/edit`),
-        [article?.id, navigate],
-    );
+    const onBackToList = useCallback(() => navigate(getRouteArticles()), [navigate]);
+    const onEditArticle = useCallback(() => {
+        if (article) {
+            navigate(getRouteArticleEdit(article.id));
+        }
+    }, [article, navigate]);
 
     return (
         <HStack justify="between" max className={classNames('', {}, [className])}>
