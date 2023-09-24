@@ -21,12 +21,6 @@ export function buildPlugins({
         ),
         new webpack.ProgressPlugin(),
 
-        new CopyPlugin({
-            patterns: [
-                { from: paths.locales, to: paths.buildLocales },
-            ],
-        }),
-
         new webpack.DefinePlugin({ // плагин для прокидывания переменных в файлы
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
@@ -54,6 +48,11 @@ export function buildPlugins({
             new MiniCssExtractPlugin({
                 filename: 'css/[name].[contenthash:8].css',
                 chunkFilename: 'css/[name].[contenthash:8].css',
+            }),
+            new CopyPlugin({
+                patterns: [
+                    { from: paths.locales, to: paths.buildLocales },
+                ],
             }),
         ] : []),
 
