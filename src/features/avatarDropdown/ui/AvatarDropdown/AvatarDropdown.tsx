@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     getUserAuthData, isUserAdmin, isUserManger, userActions,
 } from '@/entities/User';
+import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
-import {getRouteAdmin, getRouteProfile} from "@/shared/const/router";
 
 interface AvatarDropdownProps {
     className?: string
@@ -50,7 +50,7 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
                     onClick: onLogout,
                 },
             ]}
-            trigger={<Avatar size={30} src={authData.avatar} />}
+            trigger={<Avatar size={30} fallbackInverted src={authData.avatar} />}
         />
     );
 });
