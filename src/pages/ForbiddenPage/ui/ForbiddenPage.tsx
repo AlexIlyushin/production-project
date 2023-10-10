@@ -4,10 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
 
 const ForbiddenPage = () => {
-    const { t } = useTranslation('');
+    const { t } = useTranslation();
 
     return (
-        <Page>
+        <Page
+            data-testid="ForbiddenPage"
+        >
             {t('У вас нет прав доступа к этой странице')}
         </Page>
     );
