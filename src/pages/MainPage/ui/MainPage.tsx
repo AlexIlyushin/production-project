@@ -10,7 +10,7 @@ const MainPage = () => {
         <Page
             data-testid="MainPage"
         >
-            {t('Главная страница')}
+            {t('Главная страница1')}
         </Page>
     );
 };
