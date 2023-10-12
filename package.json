@@ -28,10 +28,14 @@
     "generate:slice": "node ./scripts/createSlice/index.js",
     "postinstall": "node ./scripts/clear-cache.js"
   },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "lint-staged": "^13.0.3",
     "storybook-addon-themes": "^6.1.0",
     "@babel/core": "^7.17.5",
     "@babel/plugin-transform-runtime": "^7.18.10",
