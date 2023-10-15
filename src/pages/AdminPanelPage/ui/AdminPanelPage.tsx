@@ -8,7 +8,7 @@ const AdminPanelPage = () => {
 
     return (
         <Page
-            data-testid={'AdminPanelPage'}
+            data-testid="AdminPanelPage"
         >
             {t('Админ панель')}
         </Page>

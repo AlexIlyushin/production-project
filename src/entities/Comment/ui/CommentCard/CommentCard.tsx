@@ -2,6 +2,7 @@ import { memo } from 'react';
 
 import { Comment } from '../../model/types/comment';
 
+import { getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -10,7 +11,6 @@ import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
 import cls from './CommentCard.module.scss';
-import {getRouteProfile} from "@/shared/const/router";
 
 interface CommentCardProps {
     className?: string
