@@ -19,4 +19,10 @@ export const Normal = Template.bind({});
 Normal.args = {
 };
 
+Normal.parameters = {
+    loki: {
+        skip: true,
+    },
+};
+
 Normal.decorators = [StoreDecorator({})];

@@ -23,15 +23,39 @@ export default ({ config }: { config: webpack.Configuration }) => {
     // eslint-disable-next-line no-param-reassign
     // @ts-ignore
     config.module!.rules = config.module!.rules!.map((rule: RuleSetRule) => {
-        if (/svg/.test(rule.test as string)) {
-            return { ...rule, exclude: /\.svg$/i };
+        if (/svg/.test(rule.test as string)
+            && /png/.test(rule.test as string)
+            && /jpg/.test(rule.test as string)
+        ) {
+            return { ...rule, exclude: /\.(png|jpe?g|svg)$/i };
         }
         return rule;
     });
-    config.module!.rules.push({
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-    });
+
+    config.module?.rules?.push(
+        {
+
+            test: /\.(png|jpe?g)$/i,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[path][name].[ext]',
+                        outputPath: 'static/media/', // Путь где будут лежать файлы
+                    },
+                },
+            ],
+        },
+        {
+            test: /\.svg$/,
+            use: ['@svgr/webpack'],
+        },
+    );
+
+    // config.module!.rules.push({
+    //     test: /\.svg$/,
+    //     use: ['@svgr/webpack'],
+    // });
     config.resolve!.extensions!.push('ts', 'tsx');
     config.module!.rules.push(buildCssLoader(true));
     config.plugins!.push(new DefinePlugin({

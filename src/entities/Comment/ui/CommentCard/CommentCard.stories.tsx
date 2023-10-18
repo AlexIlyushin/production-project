@@ -33,3 +33,9 @@ isLoading.args = {
         },
     isLoading: true,
 };
+
+isLoading.parameters = {
+    loki: {
+        skip: true,
+    },
+};

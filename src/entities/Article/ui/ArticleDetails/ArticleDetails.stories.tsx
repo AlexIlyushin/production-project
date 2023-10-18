@@ -108,6 +108,12 @@ Loading.decorators = [StoreDecorator({
     },
 })];
 
+Loading.parameters = {
+    loki: {
+        skip: true,
+    },
+};
+
 export const Error = Template.bind({});
 Error.args = {};
 Error.decorators = [StoreDecorator({

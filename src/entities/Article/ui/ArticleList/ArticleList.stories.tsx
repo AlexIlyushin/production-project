@@ -103,11 +103,23 @@ isLoadingBig.args = {
     view: ArticleView.BIG,
 };
 
+isLoadingBig.parameters = {
+    loki: {
+        skip: true,
+    },
+};
+
 export const isLoadingSmall = Template.bind({});
 isLoadingSmall.args = {
     articles: [],
     isLoading: true,
     view: ArticleView.SMALL,
+};
+
+isLoadingSmall.parameters = {
+    loki: {
+        skip: true,
+    },
 };
 
 export const ListBig = Template.bind({});
@@ -134,4 +146,10 @@ ListSmall.args = {
             })),
     isLoading: false,
     view: ArticleView.SMALL,
+};
+
+ListSmall.parameters = {
+    loki: {
+        skip: true,
+    },
 };
