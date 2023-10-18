@@ -34,4 +34,4 @@ yarn-error.log*
 nbproject
 
 /.eslintcache
-/reports
+/reports/unit
