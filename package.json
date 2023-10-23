@@ -26,7 +26,8 @@
     "storybook:build": "build-storybook -c ./config/storybook",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "postinstall": "node ./scripts/clear-cache.js"
+    "postinstall": "node ./scripts/clear-cache.js",
+    "test:e2e": "cypress open"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": "eslint"
@@ -35,6 +36,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cypress": "^11.0.0",
     "lint-staged": "^13.0.3",
     "storybook-addon-themes": "^6.1.0",
     "@babel/core": "^7.17.5",
