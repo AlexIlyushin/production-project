@@ -23,9 +23,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
     // eslint-disable-next-line no-param-reassign
     // @ts-ignore
     config.module!.rules = config.module!.rules!.map((rule: RuleSetRule) => {
-        if (/svg/.test(rule.test as string)
-            && /png/.test(rule.test as string)
-            && /jpg/.test(rule.test as string)
+        if (
+            /svg/.test(rule.test as string) &&
+            /png/.test(rule.test as string) &&
+            /jpg/.test(rule.test as string)
         ) {
             return { ...rule, exclude: /\.(png|jpe?g|svg)$/i };
         }
@@ -34,7 +35,6 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
     config.module?.rules?.push(
         {
-
             test: /\.(png|jpe?g)$/i,
             use: [
                 {
@@ -58,10 +58,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
     // });
     config.resolve!.extensions!.push('ts', 'tsx');
     config.module!.rules.push(buildCssLoader(true));
-    config.plugins!.push(new DefinePlugin({
-        __IS_DEV__: JSON.stringify(true),
-        __API__: JSON.stringify('https://testapi.ru'),
-        __PROJECT__: JSON.stringify('storybook'),
-    }));
+    config.plugins!.push(
+        new DefinePlugin({
+            __IS_DEV__: JSON.stringify(true),
+            __API__: JSON.stringify('https://testapi.ru'),
+            __PROJECT__: JSON.stringify('storybook'),
+        }),
+    );
     return config;
 };

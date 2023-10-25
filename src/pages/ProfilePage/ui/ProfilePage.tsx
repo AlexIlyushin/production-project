@@ -7,7 +7,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 
 interface ProfilePageProps {
-    className?: string
+    className?: string;
 }
 
 export const ProfilePage = ({ className }: ProfilePageProps) => {

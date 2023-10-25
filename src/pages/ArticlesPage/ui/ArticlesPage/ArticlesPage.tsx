@@ -8,7 +8,10 @@ import { ArticleInfiniteList } from '../../ui/ArticleInfiniteList/ArticleInfinit
 import { ArticlesPageFilters } from '../../ui/ArticlesPageFilters/ArticlesPageFilters';
 
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/libs/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
 import { Page } from '@/widgets/Page';
@@ -16,7 +19,7 @@ import { Page } from '@/widgets/Page';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
-    className?: string
+    className?: string;
 }
 
 const reducers: ReducersList = {

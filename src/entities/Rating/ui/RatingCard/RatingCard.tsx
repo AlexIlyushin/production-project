@@ -13,13 +13,13 @@ import { StarRating } from '@/shared/ui/StarRating';
 import { Text } from '@/shared/ui/Text';
 
 interface RatingCardProps {
-    className?: string
-    title?: string
-    feedBackTitle?: string
-    hasFeedBack?: boolean
-    onCancel?: (starsCount: number) => void
-    onAccept?: (starsCount: number, feedback?: string) => void
-    rate?:number
+    className?: string;
+    title?: string;
+    feedBackTitle?: string;
+    hasFeedBack?: boolean;
+    onCancel?: (starsCount: number) => void;
+    onAccept?: (starsCount: number, feedback?: string) => void;
+    rate?: number;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
@@ -39,15 +39,18 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStars = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
 
-        if (hasFeedBack) {
-            setIsModalOpen(true);
-        } else {
-            onAccept?.(selectedStarsCount);
-        }
-    }, [hasFeedBack, onAccept]);
+            if (hasFeedBack) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(selectedStarsCount);
+            }
+        },
+        [hasFeedBack, onAccept],
+    );
 
     const acceptHandle = useCallback(() => {
         setIsModalOpen(false);
@@ -61,33 +64,40 @@ export const RatingCard = memo((props: RatingCardProps) => {
 
     const modalContent = (
         <>
-            <Text
-                title={feedBackTitle}
-            />
+            <Text title={feedBackTitle} />
             <Input
                 value={feedback}
                 onChange={setFeedback}
                 placeholder={t('Ваш отзыв')}
             />
         </>
-
     );
 
     return (
         <Card className={classNames('', {}, [className])} max>
             <VStack align="center" gap="8" max>
                 <Text title={starsCount > 0 ? t('Спасибо за оценку') : title} />
-                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
+                <StarRating
+                    selectedStars={starsCount}
+                    size={40}
+                    onSelect={onSelectStars}
+                />
             </VStack>
             <BrowserView>
                 <Modal isOpen={isModalOpen} lazy>
                     <VStack max gap="32">
                         {modalContent}
                         <HStack max gap="16" justify="end">
-                            <Button onClick={cancelHandle} theme={ButtonTheme.OUTLINE_RED}>
+                            <Button
+                                onClick={cancelHandle}
+                                theme={ButtonTheme.OUTLINE_RED}
+                            >
                                 {t('Закрыть')}
                             </Button>
-                            <Button onClick={acceptHandle} theme={ButtonTheme.OUTLINE}>
+                            <Button
+                                onClick={acceptHandle}
+                                theme={ButtonTheme.OUTLINE}
+                            >
                                 {t('Отправить')}
                             </Button>
                         </HStack>
@@ -97,13 +107,15 @@ export const RatingCard = memo((props: RatingCardProps) => {
             <MobileView>
                 <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
                     <VStack max gap="32">
-
                         {modalContent}
-                        <Button fullWidth onClick={acceptHandle} size={ButtonSize.L}>
+                        <Button
+                            fullWidth
+                            onClick={acceptHandle}
+                            size={ButtonSize.L}
+                        >
                             {t('Отправить')}
                         </Button>
                     </VStack>
-
                 </Drawer>
             </MobileView>
         </Card>

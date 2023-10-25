@@ -10,51 +10,56 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({
-    paths, isDev, apiUrl, project,
+    paths,
+    isDev,
+    apiUrl,
+    project,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
     const isProd = !isDev;
     return [
-        new HtmlWebpackPlugin(
-            {
-                template: paths.html,
-            },
-        ),
+        new HtmlWebpackPlugin({
+            template: paths.html,
+        }),
         new webpack.ProgressPlugin(),
 
-        new webpack.DefinePlugin({ // плагин для прокидывания переменных в файлы
+        new webpack.DefinePlugin({
+            // плагин для прокидывания переменных в файлы
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
         }),
 
-        ...(isDev ? [
-            new ForkTsCheckerWebpackPlugin({
-                typescript: {
-                    diagnosticOptions: {
-                        semantic: true,
-                        syntactic: true,
-                    },
-                    mode: 'write-references',
-                },
-            }),
-            new ReactRefreshWebpackPlugin({ overlay: false }),
-            new BundleAnalyzerPlugin({ openAnalyzer: false }),
-            new CircularDependencyPlugin({
-                exclude: /node_modules/,
-                failOnError: true,
-            }),
-        ] : []),
-        ...(isProd ? [
-            new MiniCssExtractPlugin({
-                filename: 'css/[name].[contenthash:8].css',
-                chunkFilename: 'css/[name].[contenthash:8].css',
-            }),
-            new CopyPlugin({
-                patterns: [
-                    { from: paths.locales, to: paths.buildLocales },
-                ],
-            }),
-        ] : []),
-
+        ...(isDev
+            ? [
+                  new ForkTsCheckerWebpackPlugin({
+                      typescript: {
+                          diagnosticOptions: {
+                              semantic: true,
+                              syntactic: true,
+                          },
+                          mode: 'write-references',
+                      },
+                  }),
+                  new ReactRefreshWebpackPlugin({ overlay: false }),
+                  new BundleAnalyzerPlugin({ openAnalyzer: false }),
+                  new CircularDependencyPlugin({
+                      exclude: /node_modules/,
+                      failOnError: true,
+                  }),
+              ]
+            : []),
+        ...(isProd
+            ? [
+                  new MiniCssExtractPlugin({
+                      filename: 'css/[name].[contenthash:8].css',
+                      chunkFilename: 'css/[name].[contenthash:8].css',
+                  }),
+                  new CopyPlugin({
+                      patterns: [
+                          { from: paths.locales, to: paths.buildLocales },
+                      ],
+                  }),
+              ]
+            : []),
     ];
 }

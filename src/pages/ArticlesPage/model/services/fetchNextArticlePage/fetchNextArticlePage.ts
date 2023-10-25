@@ -10,18 +10,19 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 
-export const fetchNextArticlePage = createAsyncThunk<void, void, ThunkConfig<string>>(
-    'articlesPage/fetchNextArticlePage',
-    async (props, thunkAPI) => {
-        const { dispatch, getState } = thunkAPI;
+export const fetchNextArticlePage = createAsyncThunk<
+    void,
+    void,
+    ThunkConfig<string>
+>('articlesPage/fetchNextArticlePage', async (props, thunkAPI) => {
+    const { dispatch, getState } = thunkAPI;
 
-        const hasMore = getArticlesPageHasMore(getState());
-        const isLoading = getArticlesPageIsLoading(getState());
-        const page = getArticlesPageNum(getState());
+    const hasMore = getArticlesPageHasMore(getState());
+    const isLoading = getArticlesPageIsLoading(getState());
+    const page = getArticlesPageNum(getState());
 
-        if (hasMore && !isLoading) {
-            dispatch(articlesPageActions.setPage(page + 1));
-            dispatch(fetchArticlesList({}));
-        }
-    },
-);
+    if (hasMore && !isLoading) {
+        dispatch(articlesPageActions.setPage(page + 1));
+        dispatch(fetchArticlesList({}));
+    }
+});

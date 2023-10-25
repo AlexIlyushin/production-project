@@ -6,32 +6,41 @@ import cls from './Card.module.scss';
 
 export enum CardTheme {
     NORMAL = 'normal',
-    OUTLINED = 'outlined'
+    OUTLINED = 'outlined',
 }
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
-    className?: string
+    className?: string;
     /**
      *  Содержимое карточки
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * Тема карточки
      */
-    theme?: CardTheme
+    theme?: CardTheme;
     /**
      * 100% ширина
      */
-    max?:boolean
+    max?: boolean;
 }
 
-export const Card = memo(({
-    className, children, theme = CardTheme.NORMAL, max, ...otherProps
-}: CardProps) => (
-    <div
-        className={classNames(cls.Card, { [cls.max]: max }, [className, cls[theme]])}
-        {...otherProps}
-    >
-        {children}
-    </div>
-));
+export const Card = memo(
+    ({
+        className,
+        children,
+        theme = CardTheme.NORMAL,
+        max,
+        ...otherProps
+    }: CardProps) => (
+        <div
+            className={classNames(cls.Card, { [cls.max]: max }, [
+                className,
+                cls[theme],
+            ])}
+            {...otherProps}
+        >
+            {children}
+        </div>
+    ),
+);

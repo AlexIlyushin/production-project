@@ -4,19 +4,22 @@ import { classNames, Mods } from '@/shared/libs/classNames/classNames';
 
 import cls from './Flex.module.scss';
 
-export type FlexJustify = 'start' | 'center' | 'end' | 'between'
-export type FlexAlign = 'start' | 'center' | 'end'
-export type FlexDirection = 'row' | 'column'
-export type FlexGap = '4' | '8' | '16' | '32'
+export type FlexJustify = 'start' | 'center' | 'end' | 'between';
+export type FlexAlign = 'start' | 'center' | 'end';
+export type FlexDirection = 'row' | 'column';
+export type FlexGap = '4' | '8' | '16' | '32';
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+    HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+>;
 
-export interface FlexProps extends DivProps{
-    className?: string
+export interface FlexProps extends DivProps {
+    className?: string;
     /**
      *содержимое флекс-контейнера
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * выравнивание по горизонтали **
      */
@@ -36,7 +39,7 @@ export interface FlexProps extends DivProps{
     /**
      * максимальный размер флекс-контейнера (флаг) **
      */
-    max?:boolean;
+    max?: boolean;
 }
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -83,13 +86,11 @@ export const Flex = (props: FlexProps) => {
         gap && gapClasses[gap],
     ];
 
-    const mods:Mods = {
+    const mods: Mods = {
         [cls.max]: max,
     };
 
     return (
-        <div className={classNames(cls.Flex, mods, classes)}>
-            {children}
-        </div>
+        <div className={classNames(cls.Flex, mods, classes)}>{children}</div>
     );
 };

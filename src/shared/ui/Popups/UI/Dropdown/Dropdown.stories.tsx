@@ -12,11 +12,17 @@ export default {
         backgroundColor: { control: 'color' },
     },
     decorators: [
-        (Story) => <div style={{ paddingLeft: 100, paddingTop: 100, display: 'flex' }}><Story /></div>,
+        (Story) => (
+            <div style={{ paddingLeft: 100, paddingTop: 100, display: 'flex' }}>
+                <Story />
+            </div>
+        ),
     ],
 } as ComponentMeta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
+const Template: ComponentStory<typeof Dropdown> = (args) => (
+    <Dropdown {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -32,7 +38,6 @@ Primary.args = {
             content: 'third',
         },
     ],
-
 };
 
 export const topLeft = Template.bind({});
@@ -50,7 +55,6 @@ topLeft.args = {
             content: 'third',
         },
     ],
-
 };
 
 export const topRight = Template.bind({});
@@ -68,7 +72,6 @@ topRight.args = {
             content: 'third',
         },
     ],
-
 };
 
 export const bottomLeft = Template.bind({});
@@ -86,7 +89,6 @@ bottomLeft.args = {
             content: 'third',
         },
     ],
-
 };
 
 export const bottomRight = Template.bind({});
@@ -104,5 +106,4 @@ bottomRight.args = {
             content: 'third',
         },
     ],
-
 };

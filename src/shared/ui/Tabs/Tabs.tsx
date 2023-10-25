@@ -8,8 +8,8 @@ import { typedMemo } from '@/shared/types';
 import cls from './Tabs.module.scss';
 
 export interface TabItem<T extends string> {
-    value: T,
-    content: string
+    value: T;
+    content: string;
 }
 
 interface TabsProps<T extends string> {
@@ -30,22 +30,24 @@ interface TabsProps<T extends string> {
 }
 
 export const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
-    const {
-        className,
-        tabs,
-        value,
-        onTabClick,
-    } = props;
+    const { className, tabs, value, onTabClick } = props;
 
-    const onClickHandler = useCallback((tab: TabItem<T>) => () => {
-        onTabClick(tab.value);
-    }, [onTabClick]);
+    const onClickHandler = useCallback(
+        (tab: TabItem<T>) => () => {
+            onTabClick(tab.value);
+        },
+        [onTabClick],
+    );
 
     return (
         <div className={classNames(cls.Tabs, {}, [className])}>
             {tabs.map((tab) => (
                 <Card
-                    theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+                    theme={
+                        tab.value === value
+                            ? CardTheme.NORMAL
+                            : CardTheme.OUTLINED
+                    }
                     key={tab.value}
                     className={cls.tab}
                     onClick={onClickHandler(tab)}

@@ -1,11 +1,7 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 
-import {
-    fetchArticleRecommendations,
-} from '../services/fetchArticleRecommendations/fetchArticleRecommendations';
-import {
-    ArticleDetailsRecommendationsSchema,
-} from '../types/articleDetailsRecommendationsSchema';
+import { fetchArticleRecommendations } from '../services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { ArticleDetailsRecommendationsSchema } from '../types/articleDetailsRecommendationsSchema';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { Article } from '@/entities/Article';
@@ -14,18 +10,24 @@ const recommendationAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
 });
 
-export const getArticleRecommendations = recommendationAdapter.getSelectors<StateSchema>(
-    (state) => state.articleDetailsPage?.recommendations || recommendationAdapter.getInitialState(),
-);
+export const getArticleRecommendations =
+    recommendationAdapter.getSelectors<StateSchema>(
+        (state) =>
+            state.articleDetailsPage?.recommendations ||
+            recommendationAdapter.getInitialState(),
+    );
 
 const articleDetailsRecommendationsSlice = createSlice({
     name: 'articleDetailsRecommendationsSlice',
-    initialState: recommendationAdapter.getInitialState<ArticleDetailsRecommendationsSchema>({
-        isLoading: false,
-        error: undefined,
-        ids: [],
-        entities: {},
-    }),
+    initialState:
+        recommendationAdapter.getInitialState<ArticleDetailsRecommendationsSchema>(
+            {
+                isLoading: false,
+                error: undefined,
+                ids: [],
+                entities: {},
+            },
+        ),
     reducers: {},
     extraReducers: (builder) => {
         builder
@@ -44,4 +46,5 @@ const articleDetailsRecommendationsSlice = createSlice({
     },
 });
 
-export const { reducer: articleDetailsPageRecommendationsReducer } = articleDetailsRecommendationsSlice;
+export const { reducer: articleDetailsPageRecommendationsReducer } =
+    articleDetailsRecommendationsSlice;

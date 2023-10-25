@@ -1,4 +1,8 @@
-import { getArticleDetailsData, getArticleDetailError, getArticleDetailIsLoading } from './articleDetails';
+import {
+    getArticleDetailsData,
+    getArticleDetailError,
+    getArticleDetailIsLoading,
+} from './articleDetails';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 
@@ -33,7 +37,9 @@ describe('articleDetails.test', () => {
 
     test('with empty ArticleDetail state loading', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getArticleDetailIsLoading(state as StateSchema)).toEqual(undefined);
+        expect(getArticleDetailIsLoading(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
 
     test('should return ArticleDetail error', () => {

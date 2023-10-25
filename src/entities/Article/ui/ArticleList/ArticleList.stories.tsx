@@ -18,12 +18,7 @@ const article = {
         avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
     },
     createdAt: '26.02.2022',
-    type: [
-        'IT',
-        'POLITIC',
-        'SCIENCE',
-        'ECONOMICS',
-    ],
+    type: ['IT', 'POLITIC', 'SCIENCE', 'ECONOMICS'],
     blocks: [
         {
             id: '1',
@@ -94,7 +89,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+    <ArticleList {...args} />
+);
 
 export const isLoadingBig = Template.bind({});
 isLoadingBig.args = {
@@ -124,26 +121,20 @@ isLoadingSmall.parameters = {
 
 export const ListBig = Template.bind({});
 ListBig.args = {
-    articles:
-        new Array(3)
-            .fill(0)
-            .map((item, index) => ({
-                ...article,
-                id: String(index),
-            })),
+    articles: new Array(3).fill(0).map((item, index) => ({
+        ...article,
+        id: String(index),
+    })),
     isLoading: false,
     view: ArticleView.BIG,
 };
 
 export const ListSmall = Template.bind({});
 ListSmall.args = {
-    articles:
-        new Array(9)
-            .fill(0)
-            .map((item, index) => ({
-                ...article,
-                id: String(index),
-            })),
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: String(index),
+    })),
     isLoading: false,
     view: ArticleView.SMALL,
 };

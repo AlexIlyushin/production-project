@@ -7,16 +7,16 @@ import cls from './Applink.module.scss';
 
 export enum AppLinkTheme {
     PRIMARY = 'primary',
-    SECONDARY = 'secondary'
+    SECONDARY = 'secondary',
 }
 
 interface AppLinkProps extends LinkProps {
-    className?: string
-    theme?: AppLinkTheme
-    children?:ReactNode
+    className?: string;
+    theme?: AppLinkTheme;
+    children?: ReactNode;
 }
 
-export const AppLink = (props:AppLinkProps) => {
+export const AppLink = (props: AppLinkProps) => {
     const {
         className,
         to,

@@ -9,46 +9,48 @@ import { Select, SelectOption } from '@/shared/ui/Select';
 import cls from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {
-    className?: string
-    sort: ArticleSortField
-    order: SortOrder
-    onChangeOrder: (newOrder: SortOrder) => void
-    onChangeSort: (newSort: ArticleSortField) => void
+    className?: string;
+    sort: ArticleSortField;
+    order: SortOrder;
+    onChangeOrder: (newOrder: SortOrder) => void;
+    onChangeSort: (newSort: ArticleSortField) => void;
 }
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     const { t } = useTranslation();
-    const {
-        className, sort, onChangeSort, onChangeOrder, order,
-    } = props;
-    const orderOptions = useMemo<SelectOption<SortOrder>[]>(() => [
-        {
-            value: 'asc',
-            content: t('по возрастанию'),
-        },
-        {
-            value: 'desc',
-            content: t('по убыванию'),
-        },
+    const { className, sort, onChangeSort, onChangeOrder, order } = props;
+    const orderOptions = useMemo<SelectOption<SortOrder>[]>(
+        () => [
+            {
+                value: 'asc',
+                content: t('по возрастанию'),
+            },
+            {
+                value: 'desc',
+                content: t('по убыванию'),
+            },
+        ],
+        [t],
+    );
 
-    ], [t]);
+    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
+        () => [
+            {
+                value: ArticleSortField.CREATED,
+                content: t('дате создания'),
+            },
+            {
+                value: ArticleSortField.TITLE,
+                content: t('заголовку'),
+            },
 
-    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(() => [
-        {
-            value: ArticleSortField.CREATED,
-            content: t('дате создания'),
-        },
-        {
-            value: ArticleSortField.TITLE,
-            content: t('заголовку'),
-        },
-
-        {
-            value: ArticleSortField.VIEWS,
-            content: t('просмотрам'),
-        },
-
-    ], [t]);
+            {
+                value: ArticleSortField.VIEWS,
+                content: t('просмотрам'),
+            },
+        ],
+        [t],
+    );
 
     return (
         <div className={classNames(cls.ArticleSortSelector, {}, [className])}>

@@ -2,15 +2,15 @@ import { Rating } from '@/entities/Rating';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 interface GetProfileRatingArg {
-    userId: string,
-    profileId: string
+    userId: string;
+    profileId: string;
 }
 
 interface RateProfileArg {
-    userId: string,
-    profileId: string
-    rate:number
-    feedback?:string
+    userId: string;
+    profileId: string;
+    rate: number;
+    feedback?: string;
 }
 
 const profileRatingApi = rtkApi.injectEndpoints({
@@ -25,14 +25,13 @@ const profileRatingApi = rtkApi.injectEndpoints({
             }),
         }),
 
-        rateProfile: build.mutation < void, RateProfileArg >({
+        rateProfile: build.mutation<void, RateProfileArg>({
             query: (arg) => ({
                 url: '/profile-ratings',
                 method: 'POST',
                 body: arg,
             }),
         }),
-
     }),
 });
 

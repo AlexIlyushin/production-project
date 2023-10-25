@@ -15,21 +15,25 @@ export default {
     decorators: [withMock],
 } as ComponentMeta<typeof ProfileRating>;
 
-const Template: ComponentStory<typeof ProfileRating> = (args) => <ProfileRating {...args} />;
+const Template: ComponentStory<typeof ProfileRating> = (args) => (
+    <ProfileRating {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
     profileId: '1',
 };
 
-Primary.decorators = [StoreDecorator({
-    user: {
-        authData: {
-            id: '1',
-            username: 'test',
+Primary.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                id: '1',
+                username: 'test',
+            },
         },
-    },
-})];
+    }),
+];
 
 Primary.parameters = {
     mockData: [
@@ -37,9 +41,7 @@ Primary.parameters = {
             url: `${__API__}/profile-ratings?userId=1&profileId=1`,
             method: 'GET',
             status: 200,
-            response: [
-                { rate: 2, feedback: 'test' },
-            ],
+            response: [{ rate: 2, feedback: 'test' }],
         },
     ],
 };

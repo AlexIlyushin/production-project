@@ -8,42 +8,42 @@ import ArticleIcon from '@/shared/assets/icons/article-20-20.svg';
 import MainIcon from '@/shared/assets/icons/main-20-20.svg';
 import ProfileIcon from '@/shared/assets/icons/profile-20-20.svg';
 import {
-    getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
+    getRouteAbout,
+    getRouteArticles,
+    getRouteMain,
+    getRouteProfile,
 } from '@/shared/const/router';
 
-export const getSidebarItems = createSelector(
-    getUserAuthData,
-    (userData) => {
-        const sidebarItemsList: SidebarItemType[] = [
-            {
-                path: getRouteMain(),
-                text: 'Главная',
-                Icon: MainIcon,
-            },
-            {
-                path: getRouteAbout(),
-                text: 'О сайте',
-                Icon: AboutIcon,
-            },
-        ];
+export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+    const sidebarItemsList: SidebarItemType[] = [
+        {
+            path: getRouteMain(),
+            text: 'Главная',
+            Icon: MainIcon,
+        },
+        {
+            path: getRouteAbout(),
+            text: 'О сайте',
+            Icon: AboutIcon,
+        },
+    ];
 
-        if (userData) {
-            sidebarItemsList.push(
-                {
-                    path: getRouteProfile(userData.id),
-                    text: 'Профиль',
-                    Icon: ProfileIcon,
-                    authOnly: true,
-                },
+    if (userData) {
+        sidebarItemsList.push(
+            {
+                path: getRouteProfile(userData.id),
+                text: 'Профиль',
+                Icon: ProfileIcon,
+                authOnly: true,
+            },
 
-                {
-                    path: getRouteArticles(),
-                    text: 'Статьи',
-                    Icon: ArticleIcon,
-                    authOnly: true,
-                },
-            );
-        }
-        return sidebarItemsList;
-    },
-);
+            {
+                path: getRouteArticles(),
+                text: 'Статьи',
+                Icon: ArticleIcon,
+                authOnly: true,
+            },
+        );
+    }
+    return sidebarItemsList;
+});

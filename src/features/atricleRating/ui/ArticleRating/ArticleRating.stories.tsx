@@ -15,21 +15,25 @@ export default {
     decorators: [withMock],
 } as ComponentMeta<typeof ArticleRating>;
 
-const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
+const Template: ComponentStory<typeof ArticleRating> = (args) => (
+    <ArticleRating {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
     articleId: '1',
 };
 
-Primary.decorators = [StoreDecorator({
-    user: {
-        authData: {
-            id: '1',
-            username: 'test',
+Primary.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                id: '1',
+                username: 'test',
+            },
         },
-    },
-})];
+    }),
+];
 
 Primary.parameters = {
     mockData: [
@@ -37,9 +41,7 @@ Primary.parameters = {
             url: `${__API__}/article-ratings?userId=1&articleId=1`,
             method: 'GET',
             status: 200,
-            response: [
-                { rate: 2, feedback: 'test' },
-            ],
+            response: [{ rate: 2, feedback: 'test' }],
         },
     ],
 };

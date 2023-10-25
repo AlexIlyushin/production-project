@@ -1,32 +1,39 @@
 import React, {
-    InputHTMLAttributes, memo, useEffect, useRef, useState,
+    InputHTMLAttributes,
+    memo,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
 
 import { classNames, Mods } from '@/shared/libs/classNames/classNames';
 
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly'
+>;
 
 interface InputProps extends HTMLInputProps {
-    className?: string
+    className?: string;
     /**
      *  управляемое значение инпута
      */
-    value?: string | number
+    value?: string | number;
     /**
      * колбек при изменении
      * @param value
      */
-    onChange?: (value: string) => void
+    onChange?: (value: string) => void;
     /**
      * установка автофокуса инпута
      */
-    autofocus?:boolean
+    autofocus?: boolean;
     /**
      * только для чтения
      */
-    readonly?:boolean
+    readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -60,7 +67,7 @@ export const Input = memo((props: InputProps) => {
         setIsFocused(true);
     };
 
-    const onSelect = (e:any) => {
+    const onSelect = (e: any) => {
         setCaretPosition(e?.target?.selectionStart || 0);
     };
 
@@ -71,18 +78,15 @@ export const Input = memo((props: InputProps) => {
         }
     }, [autofocus]);
 
-    const mods:Mods = {
+    const mods: Mods = {
         [cls.readonly]: readonly,
     };
 
     return (
         <div className={classNames(cls.InputWrapper, mods, [className])}>
-            {placeholder
-                && (
-                    <div className={cls.placeholder}>
-                        {`${placeholder}>`}
-                    </div>
-                )}
+            {placeholder && (
+                <div className={cls.placeholder}>{`${placeholder}>`}</div>
+            )}
             <div className={cls.caretWrapper}>
                 <input
                     readOnly={readonly}
@@ -96,13 +100,12 @@ export const Input = memo((props: InputProps) => {
                     onSelect={onSelect}
                     {...otherProps}
                 />
-                {isCaretVisible
-                    && (
-                        <span
-                            className={cls.caret}
-                            style={{ left: `${caretPosition * 9}px` }}
-                        />
-                    )}
+                {isCaretVisible && (
+                    <span
+                        className={cls.caret}
+                        style={{ left: `${caretPosition * 9}px` }}
+                    />
+                )}
             </div>
         </div>
     );

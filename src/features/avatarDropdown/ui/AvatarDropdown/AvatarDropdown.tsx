@@ -3,7 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-    getUserAuthData, isUserAdmin, isUserManger, userActions,
+    getUserAuthData,
+    isUserAdmin,
+    isUserManger,
+    userActions,
 } from '@/entities/User';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/libs/classNames/classNames';
@@ -11,7 +14,7 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 
 interface AvatarDropdownProps {
-    className?: string
+    className?: string;
 }
 
 export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
@@ -36,10 +39,13 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
             direction="bottom right"
             className={classNames('', {}, [className])}
             items={[
-                ...(isAdminPanelAvailable ? [{
-                    content: t('Админка'),
-                    href: getRouteAdmin(),
-                }]
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: t('Админка'),
+                              href: getRouteAdmin(),
+                          },
+                      ]
                     : []),
                 {
                     content: t('Профиль'),
@@ -50,7 +56,9 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
                     onClick: onLogout,
                 },
             ]}
-            trigger={<Avatar size={30} fallbackInverted src={authData.avatar} />}
+            trigger={
+                <Avatar size={30} fallbackInverted src={authData.avatar} />
+            }
         />
     );
 });

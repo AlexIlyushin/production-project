@@ -13,26 +13,28 @@ import { ArticleList } from '@/entities/Article';
 import { Text } from '@/shared/ui/Text';
 
 interface ArticleInfiniteListProps {
-    className?: string
+    className?: string;
 }
 
-export const ArticleInfiniteList = memo(({ className }: ArticleInfiniteListProps) => {
-    const { t } = useTranslation();
-    const articles = useSelector(getArticles.selectAll);
-    const isLoading = useSelector(getArticlesPageIsLoading);
-    const view = useSelector(getArticlesPageView);
-    const error = useSelector(getArticlesPageError);
+export const ArticleInfiniteList = memo(
+    ({ className }: ArticleInfiniteListProps) => {
+        const { t } = useTranslation();
+        const articles = useSelector(getArticles.selectAll);
+        const isLoading = useSelector(getArticlesPageIsLoading);
+        const view = useSelector(getArticlesPageView);
+        const error = useSelector(getArticlesPageError);
 
-    if (error) {
-        return <Text text={t('Ошибка при загрузке статей')} />;
-    }
+        if (error) {
+            return <Text text={t('Ошибка при загрузке статей')} />;
+        }
 
-    return (
-        <ArticleList
-            isLoading={isLoading}
-            view={view}
-            articles={articles}
-            className={className}
-        />
-    );
-});
+        return (
+            <ArticleList
+                isLoading={isLoading}
+                view={view}
+                articles={articles}
+                className={className}
+            />
+        );
+    },
+);

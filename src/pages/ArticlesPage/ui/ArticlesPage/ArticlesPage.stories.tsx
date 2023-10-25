@@ -15,7 +15,9 @@ export default {
     decorators: [withMock],
 } as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
+const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+    <ArticlesPage {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
@@ -36,9 +38,7 @@ Primary.parameters = {
                     views: 1022,
                     createdAt: '26.04.2022',
                     userId: '1',
-                    type: [
-                        'IT',
-                    ],
+                    type: ['IT'],
                     blocks: [
                         {
                             id: '1',
@@ -108,9 +108,7 @@ Primary.parameters = {
                     views: 1022,
                     createdAt: '26.04.2022',
                     userId: '1',
-                    type: [
-                        'IT',
-                    ],
+                    type: ['IT'],
                     blocks: [
                         {
                             id: '1',

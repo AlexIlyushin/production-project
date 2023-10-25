@@ -8,36 +8,31 @@ import { classNames } from '@/shared/libs/classNames/classNames';
 import cls from './StarRating.module.scss';
 
 interface StarRatingProps {
-    className?: string
+    className?: string;
     /**
      * колбек на изменение
      * @param starCount
      */
-    onSelect?:(starCount:number)=>void
+    onSelect?: (starCount: number) => void;
     /**
      * размер звёзд **
      */
-    size?:number
+    size?: number;
     /**
      * выбранные звёзды **
      */
-    selectedStars?:number
+    selectedStars?: number;
 }
 
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: StarRatingProps) => {
-    const {
-        className,
-        onSelect,
-        size = 30,
-        selectedStars = 0,
-    } = props;
+    const { className, onSelect, size = 30, selectedStars = 0 } = props;
 
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
-    const onHover = (starsCount:number) => () => {
+    const onHover = (starsCount: number) => () => {
         if (!isSelected) {
             setCurrentStarsCount(starsCount);
         }
@@ -49,7 +44,7 @@ export const StarRating = memo((props: StarRatingProps) => {
         }
     };
 
-    const onClick = (starsCount:number) => () => {
+    const onClick = (starsCount: number) => () => {
         if (!isSelected) {
             onSelect?.(starsCount);
             setCurrentStarsCount(starsCount);
@@ -61,11 +56,17 @@ export const StarRating = memo((props: StarRatingProps) => {
         <div className={classNames(cls.StarRating, {}, [className])}>
             {stars.map((starNumber) => (
                 <Icon
-                    className={classNames(cls.StarIcon, {
-                        [cls.selected]: isSelected,
-                    }, [
-                        currentStarsCount >= starNumber ? cls.hovered : cls.normal,
-                    ])}
+                    className={classNames(
+                        cls.StarIcon,
+                        {
+                            [cls.selected]: isSelected,
+                        },
+                        [
+                            currentStarsCount >= starNumber
+                                ? cls.hovered
+                                : cls.normal,
+                        ],
+                    )}
                     Svg={StarIcon}
                     key={starNumber}
                     width={size}

@@ -4,10 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-    ],
+    extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -48,10 +45,10 @@ module.exports = {
                 },
             },
         ],
-        'react/jsx-indent': [2, 4], // кол-во отступов для обычных файлов jsx tsx
-        'react/jsx-indent-props': [2, 4], // кол-во отступов в аттрибутах к компоненту
+        // 'react/jsx-indent': [2, 4], // кол-во отступов для обычных файлов jsx tsx
+        // 'react/jsx-indent-props': [2, 4], // кол-во отступов в аттрибутах к компоненту
         'unused-imports/no-unused-imports': 'error',
-        indent: [2, 4], // кол-во отступов для обычных файлов js
+        // indent: [2, 4], // кол-во отступов для обычных файлов js
         'react/jsx-filename-extension': [
             2,
             { extensions: ['.js', '.jsx', 'tsx'] },
@@ -67,7 +64,8 @@ module.exports = {
         'import/extensions': 'off', // расширения импортов
         'import/no-extraneous-dependencies': 'off', // импорт зав-ей из devDependencies (off - разрешить)
         'no-underscore-dangle': 'off', // двойные подчеркивания в наименовании переменных
-        'i18next/no-literal-string': ['error',
+        'i18next/no-literal-string': [
+            'error',
             {
                 markupOnly: true,
                 ignoreAttribute: [
@@ -82,7 +80,8 @@ module.exports = {
                     'role',
                     'as',
                 ],
-            }], // отсут-е переводов в разметке jsx
+            },
+        ], // отсут-е переводов в разметке jsx
         'max-len': ['error', { ignoreComments: true, code: 120 }],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
@@ -95,7 +94,11 @@ module.exports = {
             'error',
             {
                 alias: '@',
-                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    '**/*.story.*',
+                    '**/StoreDecorator.tsx',
+                ],
             },
         ],
         'lex-ander-plugin/layers-imports': [
@@ -106,6 +109,7 @@ module.exports = {
             },
         ],
         'react/no-array-index-key': 'off', // ключи в списках из индексов
+        'react/jsx-max-props-per-line': [2, { maximum: 4 }], // кол-во свойств в одной строке
     },
     globals: {
         __IS_DEV__: true,
@@ -120,6 +124,5 @@ module.exports = {
                 'max-len': 'off',
             },
         },
-
     ],
 };

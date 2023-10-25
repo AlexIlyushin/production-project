@@ -1,12 +1,13 @@
-import React, {
-    memo, ReactNode, useCallback, useEffect,
-} from 'react';
+import React, { memo, ReactNode, useCallback, useEffect } from 'react';
 
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { AnimationProvider, useAnimationsLibs } from '@/shared/libs/components/AnimationProvider';
+import {
+    AnimationProvider,
+    useAnimationsLibs,
+} from '@/shared/libs/components/AnimationProvider';
 import { useTheme } from '@/shared/libs/hooks/useTheme/useTheme';
 
 import cls from './Drawer.module.scss';
@@ -38,18 +39,19 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
 
-    const {
-        className,
-        children,
-        onClose,
-        isOpen,
-        lazy,
-    } = props;
+    const { className, children, onClose, isOpen, lazy } = props;
     const { theme } = useTheme();
 
-    const openDrawer = useCallback(({ canceled }: { canceled: boolean }) => {
-        api.start({ y: 0, immediate: false, config: canceled ? Spring.config.wobbly : Spring.config.stiff });
-    }, [Spring.config.stiff, Spring.config.wobbly, api]);
+    const openDrawer = useCallback(
+        ({ canceled }: { canceled: boolean }) => {
+            api.start({
+                y: 0,
+                immediate: false,
+                config: canceled ? Spring.config.wobbly : Spring.config.stiff,
+            });
+        },
+        [Spring.config.stiff, Spring.config.wobbly, api],
+    );
 
     useEffect(() => {
         if (isOpen) {
@@ -72,18 +74,24 @@ export const DrawerContent = memo((props: DrawerProps) => {
             velocity: [, vy],
             direction: [, dy],
             offset: [, oy],
-            cancel, canceled,
+            cancel,
+            canceled,
         }) => {
             if (oy < -70) cancel();
             if (last) {
                 // eslint-disable-next-line no-unused-expressions
-                oy > height * 0.5 || (vy > 0.5 && dy > 0) ? close(vy) : openDrawer({ canceled });
+                oy > height * 0.5 || (vy > 0.5 && dy > 0)
+                    ? close(vy)
+                    : openDrawer({ canceled });
             } else {
                 api.start({ y: oy, immediate: true });
             }
         },
         {
-            from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
+            from: () => [0, y.get()],
+            filterTaps: true,
+            bounds: { top: 0 },
+            rubberband: true,
         },
     );
 
@@ -95,11 +103,21 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
     return (
         <Portal>
-            <div className={classNames(cls.Drawer, {}, [className, theme, 'app_drawer'])}>
+            <div
+                className={classNames(cls.Drawer, {}, [
+                    className,
+                    theme,
+                    'app_drawer',
+                ])}
+            >
                 <Overlay onClick={close} />
                 <Spring.a.div
                     className={cls.sheet}
-                    style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
+                    style={{
+                        display,
+                        bottom: `calc(-100vh + ${height - 100}px)`,
+                        y,
+                    }}
                     {...bind()}
                 >
                     {children}

@@ -2,9 +2,7 @@ import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import {
-    getUserAuthData,
-} from '@/entities/User';
+import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
@@ -18,7 +16,7 @@ import { Text, TextTheme } from '@/shared/ui/Text';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
-    className?: string
+    className?: string;
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
@@ -39,15 +37,22 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <Text className={cls.appName} title={t('SKYNET SYSTEM')} theme={TextTheme.INVERTED} />
-                <AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.SECONDARY} className={cls.createBtn}>
+                <Text
+                    className={cls.appName}
+                    title={t('SKYNET SYSTEM')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    to={getRouteArticleCreate()}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls.createBtn}
+                >
                     {t('Создать статью')}
                 </AppLink>
                 <HStack gap="16" className={cls.actions}>
                     <NotificationButton />
                     <AvatarDropdown />
                 </HStack>
-
             </header>
         );
     }
@@ -61,10 +66,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            <LoginModal
-                isOpen={isAuthModal}
-                onClose={onCloseModal}
-            />
+            <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
         </header>
     );
 });

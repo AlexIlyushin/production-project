@@ -8,7 +8,7 @@ import { Page } from '@/widgets/Page';
 import cls from './ArticleEditPage.module.scss';
 
 interface ArticleEditPageProps {
-    className?: string
+    className?: string;
 }
 
 const ArticleEditPage = memo(({ className }: ArticleEditPageProps) => {
@@ -18,7 +18,8 @@ const ArticleEditPage = memo(({ className }: ArticleEditPageProps) => {
 
     return (
         <Page className={classNames(cls.ArticleEditPage, {}, [className])}>
-            {isEdit ? t('Редактирование статьи c ID = ') + id
+            {isEdit
+                ? t('Редактирование статьи c ID = ') + id
                 : t('Создание статьи')}
         </Page>
     );

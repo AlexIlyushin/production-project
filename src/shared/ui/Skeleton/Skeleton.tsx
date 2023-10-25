@@ -5,30 +5,25 @@ import { classNames } from '@/shared/libs/classNames/classNames';
 import cls from './Skeleton.module.scss';
 
 interface SkeletonProps {
-    className?: string
+    className?: string;
     /**
      * высота скелета
      */
-    height?:string | number
+    height?: string | number;
     /**
      * ширина скелета
      */
-    width?:string | number
+    width?: string | number;
     /**
      * граница скелета
      */
-    border?:string
+    border?: string;
 }
 
 export const Skeleton = memo((props: SkeletonProps) => {
-    const {
-        className,
-        height,
-        width,
-        border,
-    } = props;
+    const { className, height, width, border } = props;
 
-    const styles:CSSProperties = {
+    const styles: CSSProperties = {
         height,
         width,
         borderRadius: border,
