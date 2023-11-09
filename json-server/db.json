@@ -563,6 +563,19 @@
       ],
       "blocks": [],
       "id": "VcuuxNs"
+    },
+    {
+      "title": "Test article",
+      "subtitle": "Test article subtitle",
+      "img": "https://www.mirea.ru/upload/iblock/7cf/vvp_rf2018_1.jpg",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "ECONOMICS"
+      ],
+      "blocks": [],
+      "id": "jqExEtz"
     }
   ],
   "comments": [
